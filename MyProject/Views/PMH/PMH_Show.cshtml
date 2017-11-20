@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MyProject.Models.Medical_history>
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <html>
+
+    <body style="background-color:pink">
+        @Html.AntiForgeryToken()
+        <div style="text-align:center">
+            <div class="container">
+                <br />
+                <img src="~/picture/createPMH.png" width="40%" height="40%" style="margin-top:30px" onclick="location.href='@Url.Action("PMH_Create", "PMH")';">
+            </div>
+                <div class="row">
+
+                    <div class="col-md-12 personal-info">
+                        
+                        @foreach (var item in Model)
+                        {
+                            int i = 1;
+                            <div class="form-group">
+                                
+                                <div class="col-md-8" style="text-align:left">
+                                    <p style="font-size: 20px">
+                                   <label style="margin-right:10px" >@i.</label> 
+                                   <label onclick="location.href='@Url.Action("PMHDetail", "PMH",new { id = item.ID_PMH })';">@item.Symtpomatic</label>
+                                        </p>
+                                    <br />
+                                </div>
+                            </div>
+                            i++;
+                        }
+
+
+
+
+
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+        
+
+
+    </body>
+</html>
